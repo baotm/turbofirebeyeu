@@ -85,14 +85,14 @@ export default {
   data () {
     return {
       info: {},
-      today: moment("2020/11/2"),
+      today: moment("2021/3/24"),
       infoWelcome: {
         week: '',
         day: '',
       },
       weekInfo: 0,
       dayInfo: '',
-      startDay: moment('2020/11/2'),
+      startDay: moment('2020/3/24'),
       toDay: moment().format("DD-MM-YYYY"),
       lichtap: [
         {

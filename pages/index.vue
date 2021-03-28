@@ -32,7 +32,7 @@
           <b-carousel-slide
             :caption="info.date.slide.caption"
             :text-html="info.date.slide.text"
-            img-src="https://picsum.photos/1024/480/?grayscale"
+            img-src="https://picsum.photos/1024/480/?blur=2"
           ></b-carousel-slide>
         </b-carousel>
 
@@ -85,14 +85,15 @@ export default {
   data () {
     return {
       info: {},
-      today: moment("2021/3/24"),
+      //  today: moment("2021/3/24"),
+      today: moment(),
       infoWelcome: {
         week: '',
         day: '',
       },
       weekInfo: 0,
       dayInfo: '',
-      startDay: moment('2020/3/24'),
+      startDay: moment('2021/3/28'),
       toDay: moment().format("DD-MM-YYYY"),
       lichtap: [
         {

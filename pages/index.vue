@@ -24,6 +24,7 @@
         <b-carousel
           id="carousel-no-animation"
           style="text-shadow: 0px 0px 2px #000"
+          background="#ababab"
           no-animation
           indicators
           img-width="1024"
@@ -32,7 +33,7 @@
           <b-carousel-slide
             :caption="info.date.slide.caption"
             :text-html="info.date.slide.text"
-            img-src="https://picsum.photos/1024/480/?blur=2"
+            img-src="img.jpg"
           ></b-carousel-slide>
         </b-carousel>
 

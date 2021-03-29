@@ -86,7 +86,6 @@ export default {
   data () {
     return {
       info: {},
-      //  today: moment("2021/3/24"),
       today: moment(),
       infoWelcome: {
         week: '',
@@ -94,7 +93,7 @@ export default {
       },
       weekInfo: 0,
       dayInfo: '',
-      startDay: moment('2021/3/28'),
+      startDay: moment('2021/3/29'),
       toDay: moment().format("DD-MM-YYYY"),
       lichtap: [
         {

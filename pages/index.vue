@@ -13,6 +13,7 @@
         <a
           class="nav-item"
           href="#"
+          v-b-toggle.collapse-1
         >TURBOFIRE TUẦN {{infoWelcome.week}} - BUỔI TẬP : {{infoWelcome.day}}</a>
 
       </div>
@@ -20,6 +21,41 @@
     </nav>
 
     <div class="container">
+      <b-collapse
+        id="collapse-1"
+        class="mt-2"
+      >
+        <b-card>
+          <p class="card-text">Danh sách Video
+          </p>
+
+          <div class="row">
+
+            <div class="col-6">
+              <b-list-group>
+                <b-list-group-item
+                  class="videoitem"
+                  style="cursor:pointer"
+                  v-for="item in listVideo"
+                  :key="item.src"
+                  @click="setVideoSrc(item.src)"
+                >
+                  {{item.name}}
+                </b-list-group-item>
+
+              </b-list-group>
+            </div>
+            <div class="col-6">
+              <b-embed
+                aspect="16by9"
+                allowfullscreen
+                :src="srcVideo"
+              ></b-embed>
+            </div>
+          </div>
+
+        </b-card>
+      </b-collapse>
       <div>
         <b-carousel
           id="carousel-no-animation"
@@ -62,6 +98,7 @@
 
 <script>
 import moment from 'moment'
+
 const _vr = {
   abs10: { name: 'ABS Class Video', src: 'https://rumble.com/embed/v89hhj/?pub=38fvd' },
   core20: { name: 'Core20 Class Video', src: 'https://rumble.com/embed/v89ho7/?pub=38fvd' },
@@ -83,8 +120,11 @@ const _vr = {
   upper20: { name: 'UPPER20 Class Video', src: 'https://rumble.com/embed/v89ig9/?pub=38fvd' },
 }
 export default {
+
   data () {
     return {
+      srcVideo: '',
+      listVideo: [],
       info: {},
       today: moment(),
       infoWelcome: {
@@ -1685,12 +1725,20 @@ export default {
     }
   },
   created () {
+    this.listVideo = _vr;
     this.calcToday();
   },
   computed: {
 
   },
   methods: {
+    setVideoLoading () {
+      this.videoLoading = false;
+    },
+    setVideoSrc (src) {
+      this.videoLoading = true;
+      this.srcVideo = src
+    },
     calcToday () {
       let diffDay = this.today.diff(this.startDay, 'days')
       let diffWeek = this.today.diff(this.startDay, 'weeks')
@@ -1704,4 +1752,7 @@ export default {
 }
 </script>
 <style>
+.videoitem:hover {
+  background-color: "green";
+}
 </style>
